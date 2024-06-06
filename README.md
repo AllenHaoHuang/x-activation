@@ -98,7 +98,7 @@ class MLP(nn.Module):
 
 ## Additional Experiments / TODO
 
-- Experimental changes on nanoRWKV using arctan based gating
+- Experimental changes on [nanoRWKV](https://github.com/BlinkDL/nanoRWKV) using arctan based gating
   for [12 layers](https://api.wandb.ai/links/saesara/w8cny2aj), [24 layers](https://api.wandb.ai/links/saesara/f7s881y2)
 - Running larger scale experiments using per channel weights instead of a scalar
 - Second order GLU appears to marginally improve (15.57 ppl -> 15.50 ppl) by scaling the range of the gating
