@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "x-gate"
+version = "1.0.0"
+description = "Implementations for activation functions and gated linear units with expanded gating ranges"
+license = "Apache"
+readme = "README.md"
+authors = [
+    "Allen Hao Huang <allen.huang@epfl.ch>",
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+torch = "^2.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
