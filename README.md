@@ -7,8 +7,8 @@ paper [Expanded Gating Ranges Improve Activation Functions](https://arxiv.org/ab
 
 Key Results
 
-- For **standard MLP**, XATLU > XGELU / XSiLU > GELU / SiLU
-- For **first-order GLU**, XATGLU > XGEGLU / XSwiGLU > ATGLU / GEGLU / SwiGLU
+- For **standard MLP**, xATLU > xGELU / xSiLU > GELU / SiLU
+- For **first-order GLU**, xATGLU > xGEGLU / xSwiGLU > ATGLU / GEGLU / SwiGLU
 - For **second-order GLU**, expanded gating ranges does not improve performance, just use ATGLU / GEGLU / SwiGLU
 - First-order GLU with expanded gating ranges appears to match the performance of second-order GLU
 
@@ -22,7 +22,7 @@ pip install -e .
 
 ## Usage
 
-Code snippet for standard MLP using XATLU / XGELU / XSiLU
+Code snippet for standard MLP using xATLU / xGELU / xSiLU
 
 ```python
 import torch.nn as nn
@@ -46,7 +46,7 @@ class MLP(nn.Module):
         return x
 ```
 
-Code snippet for gated MLP using XATGLU / XGEGLU / XSwiGLU
+Code snippet for gated MLP using xATGLU / xGEGLU / xSwiGLU
 
 ```python
 import torch.nn as nn
@@ -70,7 +70,7 @@ class MLP(nn.Module):
         return x
 ```
 
-Code snippet for gated MLP directly using the expanded gating function XAT / XGE / XS
+Code snippet for gated MLP directly using the expanded gating function xAT / xGE / xS
 
 ```python
 import torch.nn as nn
