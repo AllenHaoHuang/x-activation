@@ -20,10 +20,6 @@ The code is arranged as a `x_gate` package. To install the `x_gate` package, run
 pip install -e .
 ```
 
-Requirements:
-
-- PyTorch 1.12+
-
 ## Usage
 
 Code snippet for standard MLP using XATLU / XGELU / XSiLU
