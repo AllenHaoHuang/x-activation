@@ -72,7 +72,7 @@ class XSiLU(nn.Module):
 
 class ATGLU(nn.Module):
 
-    def __init__(self, order=1):
+    def __init__(self, order=2):
         super(ATGLU, self).__init__()
         assert order in [1, 2], "order must be either 1 or 2"
         self.order = order
