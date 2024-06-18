@@ -74,7 +74,7 @@ Code snippet for gated MLP directly using the expanded gating function xAT / xGE
 
 ```python
 import torch.nn as nn
-from x_gate import XAT, XGE, XS
+from x_gate import XAT, XGE, XSig
 
 
 class MLP(nn.Module):

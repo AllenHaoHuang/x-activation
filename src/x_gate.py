@@ -29,10 +29,10 @@ class XGE(nn.Module):
         return gate * (0.5 + self.alpha) + 0.5
 
 
-class XS(nn.Module):
+class XSig(nn.Module):
 
     def __init__(self, param_size=1):
-        super(XS, self).__init__()
+        super(XSig, self).__init__()
         self.alpha = nn.Parameter(torch.zeros(param_size))
 
     def forward(self, x):
@@ -64,7 +64,7 @@ class XSiLU(nn.Module):
 
     def __init__(self, param_size=1):
         super(XSiLU, self).__init__()
-        self.gate = XS(param_size)
+        self.gate = XSig(param_size)
 
     def forward(self, x):
         return self.gate(x) * x
@@ -129,7 +129,7 @@ class XSwiGLU(nn.Module):
         super(XSwiGLU, self).__init__()
         assert order in [1, 2], "order must be either 1 or 2"
         self.order = order
-        self.gate = XS(param_size)
+        self.gate = XSig(param_size)
 
     def forward(self, x):
         assert x.shape[-1] % 2 == 0, "dimension must be even"
