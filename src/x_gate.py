@@ -6,9 +6,9 @@ import torch.nn as nn
 
 class XAT(nn.Module):
 
-    def __init__(self, param_size=1):
+    def __init__(self):
         super(XAT, self).__init__()
-        self.alpha = nn.Parameter(torch.zeros(param_size))
+        self.alpha = nn.Parameter(torch.zeros(1))
         self.half_pi = math.pi / 2
         self.inv_pi = 1 / math.pi
 
@@ -19,9 +19,9 @@ class XAT(nn.Module):
 
 class XGE(nn.Module):
 
-    def __init__(self, param_size=1):
+    def __init__(self):
         super(XGE, self).__init__()
-        self.alpha = nn.Parameter(torch.zeros(param_size))
+        self.alpha = nn.Parameter(torch.zeros(1))
         self.inv_sqrt2 = 1 / math.sqrt(2)
 
     def forward(self, x):
@@ -31,9 +31,9 @@ class XGE(nn.Module):
 
 class XSig(nn.Module):
 
-    def __init__(self, param_size=1):
+    def __init__(self):
         super(XSig, self).__init__()
-        self.alpha = nn.Parameter(torch.zeros(param_size))
+        self.alpha = nn.Parameter(torch.zeros(1))
 
     def forward(self, x):
         gate = torch.sigmoid(x)
@@ -42,9 +42,9 @@ class XSig(nn.Module):
 
 class XATLU(nn.Module):
 
-    def __init__(self, param_size=1):
+    def __init__(self):
         super(XATLU, self).__init__()
-        self.gate = XAT(param_size)
+        self.gate = XAT()
 
     def forward(self, x):
         return self.gate(x) * x
@@ -52,9 +52,9 @@ class XATLU(nn.Module):
 
 class XGELU(nn.Module):
 
-    def __init__(self, param_size=1):
+    def __init__(self):
         super(XGELU, self).__init__()
-        self.gate = XGE(param_size)
+        self.gate = XGE()
 
     def forward(self, x):
         return self.gate(x) * x
@@ -62,9 +62,9 @@ class XGELU(nn.Module):
 
 class XSiLU(nn.Module):
 
-    def __init__(self, param_size=1):
+    def __init__(self):
         super(XSiLU, self).__init__()
-        self.gate = XSig(param_size)
+        self.gate = XSig()
 
     def forward(self, x):
         return self.gate(x) * x
@@ -91,11 +91,11 @@ class ATGLU(nn.Module):
 
 class XATGLU(nn.Module):
 
-    def __init__(self, order=1, param_size=1):
+    def __init__(self, order=1):
         super(XATGLU, self).__init__()
         assert order in [1, 2], "order must be either 1 or 2"
         self.order = order
-        self.gate = XAT(param_size)
+        self.gate = XAT()
 
     def forward(self, x):
         assert x.shape[-1] % 2 == 0, "dimension must be even"
@@ -108,11 +108,11 @@ class XATGLU(nn.Module):
 
 class XGEGLU(nn.Module):
 
-    def __init__(self, order=1, param_size=1):
+    def __init__(self, order=1):
         super(XGEGLU, self).__init__()
         assert order in [1, 2], "order must be either 1 or 2"
         self.order = order
-        self.gate = XGE(param_size)
+        self.gate = XGE()
 
     def forward(self, x):
         assert x.shape[-1] % 2 == 0, "dimension must be even"
@@ -125,11 +125,11 @@ class XGEGLU(nn.Module):
 
 class XSwiGLU(nn.Module):
 
-    def __init__(self, order=1, param_size=1):
+    def __init__(self, order=1):
         super(XSwiGLU, self).__init__()
         assert order in [1, 2], "order must be either 1 or 2"
         self.order = order
-        self.gate = XSig(param_size)
+        self.gate = XSig()
 
     def forward(self, x):
         assert x.shape[-1] % 2 == 0, "dimension must be even"
