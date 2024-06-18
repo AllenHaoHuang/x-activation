@@ -100,9 +100,10 @@ class MLP(nn.Module):
 
 - Experimental changes on [nanoRWKV](https://github.com/BlinkDL/nanoRWKV) using arctan based gating
   for [12 layers](https://api.wandb.ai/links/saesara/w8cny2aj), [24 layers](https://api.wandb.ai/links/saesara/f7s881y2)
-- Running larger scale experiments using per channel weights instead of a scalar
-- Second order GLU appears to marginally improve (15.57 ppl -> 15.50 ppl) by scaling the range of the gating
-  function to (α, β) and will be added if the improvements are consistent
+- ~~Running larger scale experiments using per channel weights instead of a scalar~~ Per channel weights do not appear
+  to improve performance
+- Second order GLU appears to consistently improve by around 0.05-0.06 ppl for 24 layer experiments by introducing the
+  following scalar affine transformation (g(x) * α + β) * x * y, where α is initialised to 1 and β is initialised to 0
 
 ## Citation
 
