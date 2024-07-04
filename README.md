@@ -26,7 +26,7 @@ Code snippet for standard MLP using xATLU / xGELU / xSiLU
 
 ```python
 import torch.nn as nn
-from x_gate import XATLU, XGELU, XSiLU
+from x_activation import XATLU, XGELU, XSiLU
 
 
 class MLP(nn.Module):
@@ -50,7 +50,7 @@ Code snippet for gated MLP using xATGLU / xGEGLU / xSwiGLU
 
 ```python
 import torch.nn as nn
-from x_gate import XATGLU, XGEGLU, XSwiGLU
+from x_activation import XATGLU, XGEGLU, XSwiGLU
 
 
 class MLP(nn.Module):
@@ -74,7 +74,7 @@ Code snippet for gated MLP directly using the expanded gating function xAT / xGE
 
 ```python
 import torch.nn as nn
-from x_gate import XAT, XGE, XSig
+from x_activation import XAT, XGE, XSig
 
 
 class MLP(nn.Module):
