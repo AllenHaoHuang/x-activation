@@ -102,8 +102,9 @@ class MLP(nn.Module):
   for [12 layers](https://api.wandb.ai/links/saesara/w8cny2aj), [24 layers](https://api.wandb.ai/links/saesara/f7s881y2)
 - ~~Running larger scale experiments using per channel weights instead of a scalar~~ Per channel weights do not appear
   to improve performance
-- Second order GLU appears to consistently improve by around 0.05-0.06 ppl for 24 layer experiments by introducing the
-  following scalar affine transformation (g(x) * α + β) * x * y, where α is initialised to 1 and β is initialised to 0
+- ~~Second order GLU appears to consistently improve by around 0.05-0.06 ppl for 24 layer experiments by introducing the
+  following scalar affine transformation (g(x) * α + β) * x * y, where α is initialised to 1 and β is initialised to 0~~
+  Alternative activation function improving upon second order GLU being worked on in follow up paper
 
 ## Citation
 
